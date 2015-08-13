@@ -6,10 +6,6 @@
   </PropertyGroup>
   <Target Name="GitVersion">
     <Exec Command="git -C .. describe --abbrev=4 --dirty --always --tags &gt; libsass-version" />
-    <Exec Command="git -C ../sassc describe --abbrev=4 --dirty --always --tags &gt; sassc-version" />
-    <ReadLinesFromFile File="sassc-version">
-      <Output TaskParameter="Lines" PropertyName="SASSC_VERSION" />
-    </ReadLinesFromFile>
     <ReadLinesFromFile File="libsass-version">
       <Output TaskParameter="Lines" PropertyName="LIBSASS_VERSION" />
     </ReadLinesFromFile>
@@ -122,7 +118,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>..\include;..\src\posix;..\sassc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;..\src\posix;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
