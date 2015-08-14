@@ -9,6 +9,11 @@ INSTALL  ?= install
 CFLAGS   ?= -Wall
 CXXFLAGS ?= -Wall
 LDFLAGS  ?= -Wall
+
+EXTRA_CFLAGS = -m32
+EXTRA_CXXFLAGS = -m32
+EXTRA_LDFLAGS = -m32
+
 ifneq "$(COVERAGE)" "yes"
   CFLAGS   += -O2
   CXXFLAGS += -O2
